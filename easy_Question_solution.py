@@ -31,7 +31,7 @@ class Solution:
     def climbStairs(self, n):
         output = 1 / (5 ** 0.5) * (((1 + (5 ** 0.5)) / 2) ** (n + 1) - ((1 - (5 ** 0.5)) / 2) ** (n + 1))
         return int(output)
-#method2:
+#method2: Fibonacci series
 class Solution:
     def climbStairs(self, n):
         if n == 1:
