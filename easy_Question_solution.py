@@ -64,3 +64,12 @@ class NumArray:
 
     def sumRange(self, i, j):
         return sum(self.nums[i : j+1])
+
+
+#https://leetcode.com/problems/maximum-subarray/description/
+class Solution:
+    def maxSubArray(self, nums):
+        for i in range(1, len(nums)):
+            if nums[i-1] > 0:
+                nums[i] += nums[i-1]
+        return max(nums)
