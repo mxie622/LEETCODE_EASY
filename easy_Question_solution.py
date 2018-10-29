@@ -26,12 +26,12 @@ class Solution:
         return element
 
 #https://leetcode.com/problems/climbing-stairs/description/
-method 1:
+#method 1: Fibonacci formula. a**2 - a - 1 = 0
 class Solution:
     def climbStairs(self, n):
         output = 1 / (5 ** 0.5) * (((1 + (5 ** 0.5)) / 2) ** (n + 1) - ((1 - (5 ** 0.5)) / 2) ** (n + 1))
         return int(output)
-method2:
+#method2:
 class Solution:
     def climbStairs(self, n):
         if n == 1:
@@ -67,6 +67,9 @@ class NumArray:
 
 
 #https://leetcode.com/problems/maximum-subarray/description/
+# Input: [-2,1,-3,4,-1,2,1,-5,4],
+# Output: 6
+# Explanation: [4,-1,2,1] has the largest sum = 6.
 class Solution:
     def maxSubArray(self, nums):
         for i in range(1, len(nums)):
