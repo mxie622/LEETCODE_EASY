@@ -76,3 +76,13 @@ class Solution:
             if nums[i-1] > 0:
                 nums[i] += nums[i-1]
         return max(nums)
+
+# https://leetcode.com/submissions/detail/186503256/
+class Solution:
+    def divide(self, dividend, divisor):
+        if dividend == -2147483648 and divisor == -1:
+            return 2147483648 - 1
+        elif 0 <= dividend * divisor:
+            return dividend // divisor
+        else:
+            return (abs(dividend) // abs(divisor))*(-1)
