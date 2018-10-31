@@ -86,3 +86,17 @@ class Solution:
             return dividend // divisor
         else:
             return (abs(dividend) // abs(divisor))*(-1)
+
+# https://leetcode.com/problems/invert-binary-tree/description/
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        if not root:
+            return
+        tmp=root.right
+        root.right=self.invertTree(root.left)
+        root.left=self.invertTree(tmp)
+        return root
