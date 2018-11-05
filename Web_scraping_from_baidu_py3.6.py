@@ -3,7 +3,7 @@
 import urllib
 import requests
 import re
-import sys, os
+import sys, os # 查看系统地址
 
 cwd=os.getcwd() # Check where your files are stored
 print(cwd)
