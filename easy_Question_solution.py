@@ -100,3 +100,18 @@ class Solution(object):
         root.right=self.invertTree(root.left)
         root.left=self.invertTree(tmp)
         return root
+
+# https://leetcode.com/problems/balanced-binary-tree/description/
+class Solution(object):
+
+    def get_height(self, root):
+        if not root: return 0
+        left = self.get_height(root.left)
+        right = self.get_height(root.right)
+        if left == -1 or right == -1 : return -1
+        if abs(left - right) > 1:  return -1
+        return max(left, right) + 1
+
+    def isBalanced(self, root):
+        height = self.get_height(root)
+        return height != -1
