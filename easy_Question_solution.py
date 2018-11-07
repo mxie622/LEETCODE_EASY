@@ -115,3 +115,65 @@ class Solution(object):
     def isBalanced(self, root):
         height = self.get_height(root)
         return height != -1
+
+# https://leetcode.com/problems/implement-queue-using-stacks/description/
+class MyQueue(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.queue = []
+
+    def push(self, x):
+        """
+        Push element x to the back of queue.
+        :type x: int
+        :rtype: void
+        """
+        self.queue.append(x)
+
+    def pop(self):
+        """
+        Removes the element from in front of queue and returns that element.
+        :rtype: int
+        """
+        if self.queue != []:
+            a = self.queue[0]
+            self.queue = self.queue[1:]
+            return a
+
+    def peek(self):
+
+        """
+        Get the front element.
+        :rtype: int
+        """
+        if self.queue != []:
+            return self.queue[0]
+
+    def empty(self):
+        if self.queue == []:
+            return True
+        return False
+
+# https://leetcode.com/problems/valid-parentheses/description/
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        str_dict = {'(':-1,')':1,'[':-2,']':2,'{':-3,'}':3}
+        str_list = []
+        for i in s:
+            val = str_dict[i]
+            if val<0:
+                str_list.append(val)
+            else:
+                if str_list== []: return False
+                check = str_list.pop()
+                if check != -val:
+                    return False
+        if str_list!= []: return False
+        return True
