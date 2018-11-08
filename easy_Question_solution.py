@@ -177,3 +177,25 @@ class Solution(object):
                     return False
         if str_list!= []: return False
         return True
+
+# https://leetcode.com/problems/move-zeroes/description/
+class Solution(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+
+        if len(nums) == 0:
+            return nums
+
+        dq = collections.deque()
+
+        for i in range(len(nums)):
+            if nums[i] == 0:
+                dq.append(i)
+            else:
+                if len(dq) != 0 and i > dq[0]:
+                    tidx = dq.popleft()
+                    nums[i], nums[tidx] = nums[tidx], nums[i]
+                    dq.append(i)
