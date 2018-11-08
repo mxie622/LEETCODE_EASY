@@ -28,5 +28,6 @@ def downloadImg(urls):
 
 # 李嘉诚的图片
 html = getHtml('http://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1541120888948_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=李嘉诚')
-
+# Dogs pictures
+# http://image.baidu.com/search/index?tn=baiduimage&ps=1&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=dog
 downloadImg(html)
