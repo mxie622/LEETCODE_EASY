@@ -199,3 +199,26 @@ class Solution(object):
                     tidx = dq.popleft()
                     nums[i], nums[tidx] = nums[tidx], nums[i]
                     dq.append(i)
+# https://leetcode.com/problems/ugly-number/description/
+class Solution:
+    def isUgly(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+        if num == 0:
+            return False
+        if num == 1 or num == 2 or num == 3 or num == 5:
+            return True
+
+        else:
+            while num % 2 == 0:
+                num = num / 2
+            while num % 3 == 0:
+                num = num / 3
+            while num % 5 == 0:
+                num = num / 5
+            if num == 1 or num == 2 or num == 3 or num == 5:
+                return True
+            else:
+                return False
