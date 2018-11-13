@@ -208,8 +208,6 @@ class Solution:
         """
         if num == 0:
             return False
-        if num == 1 or num == 2 or num == 3 or num == 5:
-            return True
 
         else:
             while num % 2 == 0:
