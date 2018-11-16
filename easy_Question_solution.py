@@ -229,3 +229,23 @@ class Solution:
         :rtype: bool
         """
         return len(set(nums)) != len(nums)
+
+# https://leetcode.com/problems/search-insert-position/description/
+class Solution:
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        a = 0
+        if target == 0:
+            return 0
+        else:
+            for i in nums:
+                if target <= i:
+                    a = nums.index(i)
+                    break
+                else:
+                    a = len(nums)
+            return a
