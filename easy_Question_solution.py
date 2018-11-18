@@ -249,3 +249,36 @@ class Solution:
                 else:
                     a = len(nums)
             return a
+
+# https://leetcode.com/problems/valid-mountain-array/description/
+class Solution:
+    def validMountainArray(self, A):
+        """
+        :type A: List[int]
+        :rtype: bool
+        """
+        h = 0
+        g = 0
+        i = 0
+
+        output = True
+        d = []
+        f = []
+        if len(A) <= 2 or A[1] <= A[0] or A[len(A)-2] <= A[len(A)-1]:
+            return False
+        else:
+            for i in range(0, A.index(max(A))):
+                if 0 < A[i+1] - A[i]:
+                    h += 1
+                else:
+                    output = False
+                    break
+
+            if h == A.index(max(A)):
+                for k in range(h, len(A)-1):
+                    if 0 > A[k+1] - A[k]:
+                        g += 1
+                    else:
+                        output = False
+                        break
+            return output
