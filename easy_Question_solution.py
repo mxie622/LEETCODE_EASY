@@ -295,3 +295,16 @@ class Solution(object):
             s += chr((n-1)%26 + ord('A'))
             n = (n-1)//26
         return s[::-1]
+
+# https://leetcode.com/problems/backspace-string-compare/description/
+class Solution(object):
+    def backspaceCompare(self, S, T):
+        def build(S):
+            ans = []
+            for c in S:
+                if c != '#':
+                    ans.append(c)
+                elif ans:
+                    ans.pop()
+            return "".join(ans)
+        return build(S) == build(T)
