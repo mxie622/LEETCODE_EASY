@@ -1,4 +1,9 @@
 #https://leetcode.com/problems/rotate-array/description/
+# Input: [-1,-100,3,99] and k = 2
+# Output: [3,99,-1,-100]
+# Explanation:
+# rotate 1 steps to the right: [99,-1,-100,3]
+# rotate 2 steps to the right: [3,99,-1,-100]
 nums = [1,2,3,4,5,6,7]
 k = 3
 class Solution:
@@ -14,7 +19,8 @@ class Solution:
 print(Solution().rotate(nums, k))
 
 #https://leetcode.com/problems/majority-element/description/
-
+# Input: [2,2,1,1,1,2,2]
+# Output: 2
 class Solution:
     def majorityElement(self, nums):
         L = set(nums)
@@ -26,6 +32,12 @@ class Solution:
         return element
 
 #https://leetcode.com/problems/climbing-stairs/description/
+# Input: 3
+# Output: 3
+# Explanation: There are three ways to climb to the top.
+# 1. 1 step + 1 step + 1 step
+# 2. 1 step + 2 steps
+# 3. 2 steps + 1 step
 #method 1: Fibonacci formula. a**2 - a - 1 = 0
 class Solution:
     def climbStairs(self, n):
@@ -44,8 +56,22 @@ class Solution:
                 one = two
                 two = three
         return two
+# method3: General
+class Solution:
+    def climbStairs(self, n):
+        way_list = [1,1]
+        if n < 2:
+            return 1
+        for i in range(2,n+1):
+            ways = way_list[i-2]+way_list[i-1]
+            way_list.append(ways)
+        return way_list[-1]
 
 #https://leetcode.com/problems/house-robber/description/
+# Input: [2,7,9,3,1]
+# Output: 12
+# Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+#              Total amount you can rob = 2 + 9 + 1 = 12.
 class Solution:
     def rob(self, nums):
         if not nums:
@@ -53,11 +79,15 @@ class Solution:
         for i in range(len(nums)):
             if i ==1:
                 nums[i] = max(nums[0],nums[1])
-            if i >1:
+            if i > 1:
                 nums[i] = max(nums[i]+nums[i-2],nums[i-1])
         return max(nums)
 
 #https://leetcode.com/problems/range-sum-query-immutable/description/
+# Given nums = [-2, 0, 3, -5, 2, -1]
+# sumRange(0, 2) -> 1
+# sumRange(2, 5) -> -1
+# sumRange(0, 5) -> -3
 class NumArray:
     def __init__(self, nums):
         self.nums = nums
@@ -77,7 +107,9 @@ class Solution:
                 nums[i] += nums[i-1]
         return max(nums)
 
-# https://leetcode.com/submissions/detail/186503256/
+# https://leetcode.com/problems/divide-two-integers/description/
+# Input: dividend = 7, divisor = -3
+# Output: -2
 class Solution:
     def divide(self, dividend, divisor):
         if dividend == -2147483648 and divisor == -1:
@@ -117,6 +149,13 @@ class Solution(object):
         return height != -1
 
 # https://leetcode.com/problems/implement-queue-using-stacks/description/
+# MyQueue queue = new MyQueue();
+#
+# queue.push(1);
+# queue.push(2);
+# queue.peek();  // returns 1
+# queue.pop();   // returns 1
+# queue.empty(); // returns false
 class MyQueue(object):
 
     def __init__(self):
@@ -158,6 +197,10 @@ class MyQueue(object):
         return False
 
 # https://leetcode.com/problems/valid-parentheses/description/
+# Input: "([)]"
+# Output: false
+# Input: "{[]}"
+# Output: true
 class Solution(object):
     def isValid(self, s):
         """
@@ -179,6 +222,8 @@ class Solution(object):
         return True
 
 # https://leetcode.com/problems/move-zeroes/description/
+# Input: [0,1,0,3,12]
+# Output: [1,3,12,0,0]
 class Solution(object):
     def moveZeroes(self, nums):
         """
@@ -200,6 +245,14 @@ class Solution(object):
                     nums[i], nums[tidx] = nums[tidx], nums[i]
                     dq.append(i)
 # https://leetcode.com/problems/ugly-number/description/
+# Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.
+# Input: 8
+# Output: true
+# Explanation: 8 = 2 × 2 × 2
+# Input: 14
+# Output: false
+# Explanation: 14 is not ugly since it includes another prime factor 7.
+
 class Solution:
     def isUgly(self, num):
         """
@@ -222,6 +275,10 @@ class Solution:
                 return False
 
 # https://leetcode.com/problems/contains-duplicate/description/
+# Input: [1,2,3,4]
+# Output: false
+# Input: [1,2,3,1]
+# Output: true
 class Solution:
     def containsDuplicate(self, nums):
         """
@@ -231,6 +288,10 @@ class Solution:
         return len(set(nums)) != len(nums)
 
 # https://leetcode.com/problems/search-insert-position/description/
+# Input: [1,3,5,6], 2
+# Output: 1
+# Input: [1,3,5,6], 0
+# Output: 0
 class Solution:
     def searchInsert(self, nums, target):
         """
@@ -251,6 +312,13 @@ class Solution:
             return a
 
 # https://leetcode.com/problems/valid-mountain-array/description/
+# A[0] < A[1] < ... A[i-1] < A[i]
+# A[i] > A[i+1] > ... > A[B.length - 1]
+# Input: [0,3,2,1]
+# Output: true
+# Input: [3,5,5]
+# Output: false
+
 class Solution:
     def validMountainArray(self, A):
         """
@@ -308,3 +376,16 @@ class Solution(object):
                     ans.pop()
             return "".join(ans)
         return build(S) == build(T)
+
+# https://leetcode.com/problems/number-of-recent-calls/description/
+# Input: inputs = ["RecentCounter","ping","ping","ping","ping"], inputs = [[],[1],[100],[3001],[3002]]
+# Output: [null,1,2,3,3]
+class RecentCounter(object):
+    def __init__(self):
+        self.q = collections.deque()
+
+    def ping(self, t):
+        self.q.append(t)
+        while self.q[0] < t-3000:
+            self.q.popleft()
+        return len(self.q)
