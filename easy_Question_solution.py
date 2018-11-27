@@ -389,3 +389,62 @@ class RecentCounter(object):
         while self.q[0] < t-3000:
             self.q.popleft()
         return len(self.q)
+
+# https://leetcode.com/problems/power-of-two/description/
+# Example 2:
+#
+# Input: 16
+# Output: true
+# Explanation: 24 = 16
+# Example 3:
+#
+# Input: 218
+# Output: false
+class Solution:
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n<=0:
+            return False;
+        while n>0:
+            if n == 1:
+                return True;
+            if n%2!=0:
+                return False;
+            n = n/2;
+
+# https://leetcode.com/problems/power-of-three/description/
+# Input: 9
+# Output: true
+# Example 4:
+#
+# Input: 45
+# Output: false
+class Solution:
+    def isPowerOfThree(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n <= 0:
+            return False
+        while n > 0:
+            if n == 1:
+                return True
+            if n % 3 != 0:
+                return False
+            n = n / 3
+# https://leetcode.com/problems/power-of-four/description/
+# Input: 16
+# Output: true
+# Example 2:
+#
+# Input: 5
+# Output: false
+class Solution:
+    def isPowerOfFour(self, n):
+        while n > 1:
+          n /= 4.0
+        return n == 1
