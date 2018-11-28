@@ -440,7 +440,7 @@ class Solution:
 # Input: 16
 # Output: true
 # Example 2:
-#
+
 # Input: 5
 # Output: false
 class Solution:
@@ -448,3 +448,73 @@ class Solution:
         while n > 1:
           n /= 4.0
         return n == 1
+
+# https://leetcode.com/problems/single-number/description/
+# Input: [2,2,1]
+# Output: 1
+# Example 2:
+#
+# Input: [4,1,2,1,2]
+# Output: 4
+
+## Method1: hash table
+# class Solution(object):
+#     def singleNumber(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: int
+#         """
+#         hash_table = {}
+#         for i in nums:
+#             try:
+#                 hash_table.pop(i)
+#             except:
+#                 hash_table[i] = 1
+#         return hash_table.popitem()[0]
+
+## Method2: My solution:...bad time consumed
+# class Solution:
+#     def singleNumber(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: int
+#         """
+#         a = set()
+#         b = set()
+#         for i in nums:
+#             if i not in a:
+#                 a.add(i)
+#             else:
+#                 b.add(i)
+#         a = list(a)
+#         b = list(b)
+#         print(b)
+#
+#         for j in a:
+#             if j not in b:
+#                 a = j
+#         return a
+
+## Method3: Regular expression
+# class Solution(object):
+#     def singleNumber(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: int
+#         """
+#         a = 0
+#         for i in nums:
+#             a ^= i
+#             print(a)
+#         return a
+
+# https://leetcode.com/problems/missing-number/description/
+# Input: [9,6,4,2,3,5,7,0,1]
+# Output: 8
+class Solution:
+    def missingNumber(self, nums):
+        num_set = set(nums)
+        n = len(nums) + 1
+        for number in range(n):
+            if number not in num_set:
+                return number
