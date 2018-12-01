@@ -458,19 +458,19 @@ class Solution:
 # Output: 4
 
 ## Method1: hash table
-# class Solution(object):
-#     def singleNumber(self, nums):
-#         """
-#         :type nums: List[int]
-#         :rtype: int
-#         """
-#         hash_table = {}
-#         for i in nums:
-#             try:
-#                 hash_table.pop(i)
-#             except:
-#                 hash_table[i] = 1
-#         return hash_table.popitem()[0]
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hash_table = {}
+        for i in nums:
+            try:
+                hash_table.pop(i)
+            except:
+                hash_table[i] = 1
+        return hash_table.popitem()[0]
 
 ## Method2: My solution:...bad time consumed
 # class Solution:
