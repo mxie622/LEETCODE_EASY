@@ -518,3 +518,38 @@ class Solution:
         for number in range(n):
             if number not in num_set:
                 return number
+
+
+# https://leetcode.com/problems/hamming-distance/description/
+# Input: x = 1, y = 4
+#
+# Output: 2
+#
+# Explanation:
+# 1   (0 0 0 1)
+# 4   (0 1 0 0)
+# Method1: Use 'bin' function
+class Solution:
+    def hammingDistance(self, x, y):
+        """
+        :type x: int
+        :type y: int
+        :rtype: int
+        """
+        return bin(x ^ y).count('1')
+
+# Method2: Bit manipulation
+class Solution:
+    def hammingDistance(self, x, y):
+        """
+        :type x: int
+        :type y: int
+        :rtype: int
+        """
+        res = 0
+        while x or y:
+            if (x & 1) ^ (y & 1) == 1:
+                res += 1
+            x >>= 1
+            y >>= 1
+        return res
