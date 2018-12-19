@@ -588,3 +588,20 @@ class Solution:
             return True
         else:
             return False
+
+# https://leetcode.com/problems/perfect-number/description/
+# Input: 28
+# Output: True
+# Explanation: 28 = 1 + 2 + 4 + 7 + 14
+# class Solution:
+#     def checkPerfectNumber(self, num):
+#
+#         if num<=1:
+#             return False
+#         a=int(num**0.5)
+#         b=1
+#         for i in range(2,a+1):
+#
+#             if num % i==0:
+#                 b=b+i+num/i
+#         return int(b)==num
