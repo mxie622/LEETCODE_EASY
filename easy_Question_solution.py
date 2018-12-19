@@ -565,3 +565,26 @@ def quicksort(arr):
     return quicksort(left) + middle + quicksort(right)
 
 print(quicksort([3,6,8,10,1,2,1]))
+
+# https://leetcode.com/problems/valid-perfect-square/description/
+# Example 1:
+#
+# Input: 16
+# Output: true
+# Example 2:
+#
+# Input: 14
+# Output: false
+class Solution:
+    def isPerfectSquare(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+        a = 1
+        while a*a < num:
+            a += 1
+        if a*a == num:
+            return True
+        else:
+            return False
