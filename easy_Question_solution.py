@@ -625,6 +625,23 @@ class Solution:
                 res.extend([s[:i] + s[i].swapcase() + s[i + 1:] for s in res])
         return res
 
+# https://leetcode.com/contest/weekly-contest-116/problems/n-repeated-element-in-size-2n-array/
+# Input: [5,1,5,2,5,3,5,4]
+# Output: 5
+class Solution:
+    def repeatedNTimes(self, A):
+        """
+        :type A: List[int]
+        :rtype: int
+        """
+        size = len(A)
+        N = size / 2
+
+        for i in A:
+            if A.count(i) == N:
+                return i
+                break
+
 
 
 
