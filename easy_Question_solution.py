@@ -642,6 +642,21 @@ class Solution:
                 return i
                 break
 
+# https://leetcode.com/problems/two-sum/
+# Given nums = [2, 7, 11, 15], target = 9,
+#
+# Because nums[0] + nums[1] = 2 + 7 = 9
+class Solution:
+    def twoSum(self, nums, target):
+        table = {}
+        for index, v in enumerate(nums):
+            if not v in table:
+                table[v] = index
+            if target - v in table:
+                if index != table[target - v]:
+                    return [table[target - v], index]
+        return None
+
 
 
 
